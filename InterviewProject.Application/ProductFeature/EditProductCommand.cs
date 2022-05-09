@@ -1,9 +1,7 @@
-﻿using InterviewProject.Common;
-using InterviewProject.Common.Enum;
-using MediatR;
-
-namespace InterviewProject.Application.ProductFeature
+﻿namespace InterviewProject.Application.ProductFeature
 {
+    using InterviewProject.Common;
+    using MediatR;
     public class EditProductCommand : IRequest<RequestResult<EditProductResult>>
     {
         public ProductModel NewProduct { get; set; }

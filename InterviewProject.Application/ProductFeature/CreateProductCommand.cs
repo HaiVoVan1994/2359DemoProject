@@ -1,14 +1,12 @@
 ﻿namespace InterviewProject.Application.ProductFeature
 {
     using InterviewProject.Common;
-using InterviewProject.Common.Services;
+    using InterviewProject.Common.Services;
     using InterviewProject.Domains;
     using InterviewProject.Infrastructure;
     using MediatR;
     using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
-    using static System.Net.Mime.MediaTypeNames;
 
     public class CreateProductCommand : IRequest<RequestResult<CreateProductResult>>
     {

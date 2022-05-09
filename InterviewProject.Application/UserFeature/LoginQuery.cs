@@ -2,15 +2,11 @@
 {
     using InterviewProject.Infrastructure;
     using MediatR;
-    using Microsoft.Extensions.Configuration;
     using System.Data;
     using System.Security.Cryptography;
     using InterviewProject.Common;
-    using InterviewProject.Common.Enum;
     using InterviewProject.Common.Services;
-    using InterviewProject.Domains;
     using Microsoft.Extensions.Logging;
-using InterviewProject.Application.ProductFeature;
 
     public class LoginQuery : IRequest<RequestResult<LoginResult>>
     {
