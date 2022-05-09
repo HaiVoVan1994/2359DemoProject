@@ -64,13 +64,18 @@ export default {
     }),
 
     login(isAdmin) {
-      console.log(this.user.username, this.user.password);
-      const payload = {
+      let payload = {
         username: this.user.username,
         password: this.user.password,
         isAdmin: isAdmin
-      };
+      }
 
+      if (isAdmin) {
+        payload.username ="admin",
+        payload.password ="admin"
+      }
+        
+     
       this.actionLoginApi(payload).then((result) => {
           if (result) {
               axios.defaults.headers.common['Authorization'] = 'Bearer ' + this.token;

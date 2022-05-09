@@ -23,19 +23,6 @@ namespace InterviewProject.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Role",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleName = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Role", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "UnitOfMeasure",
                 columns: table => new
                 {
@@ -99,30 +86,6 @@ namespace InterviewProject.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RoleUser",
-                columns: table => new
-                {
-                    RolesId = table.Column<int>(type: "int", nullable: false),
-                    UsersId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RoleUser", x => new { x.RolesId, x.UsersId });
-                    table.ForeignKey(
-                        name: "FK_RoleUser_Role_RolesId",
-                        column: x => x.RolesId,
-                        principalTable: "Role",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RoleUser_User_UsersId",
-                        column: x => x.UsersId,
-                        principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductImage",
                 columns: table => new
                 {
@@ -163,7 +126,7 @@ namespace InterviewProject.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "CreatedDate", "DOB", "Email", "Gender", "PasswordHash", "PasswordSalt", "UpdatedDate", "Username" },
-                values: new object[] { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ProjectAdmin123@gmail.com", 0, new byte[] { 191, 42, 185, 12, 235, 153, 31, 144, 156, 127, 216, 198, 218, 85, 154, 31, 169, 160, 73, 153, 187, 13, 113, 219, 153, 254, 0, 46, 7, 229, 13, 37, 25, 10, 126, 147, 155, 205, 31, 158, 247, 189, 155, 197, 171, 77, 138, 87, 143, 141, 100, 24, 130, 23, 242, 42, 27, 68, 13, 129, 94, 52, 214, 223 }, new byte[] { 9, 92, 136, 249, 251, 202, 97, 218, 237, 127, 220, 186, 194, 154, 70, 195, 199, 52, 62, 73, 211, 104, 111, 173, 188, 139, 46, 102, 17, 115, 114, 71, 169, 198, 117, 12, 14, 226, 57, 102, 238, 157, 251, 119, 21, 53, 8, 203, 250, 135, 95, 70, 165, 9, 108, 111, 16, 129, 163, 9, 131, 203, 125, 86, 164, 243, 34, 196, 105, 46, 137, 47, 43, 23, 190, 141, 91, 89, 89, 134, 192, 69, 123, 239, 83, 66, 220, 125, 168, 145, 2, 11, 52, 131, 46, 236, 176, 96, 5, 24, 201, 189, 199, 226, 142, 69, 174, 247, 112, 23, 30, 57, 8, 222, 149, 49, 119, 12, 173, 20, 28, 238, 19, 211, 195, 9, 240, 255 }, new DateTime(2022, 5, 8, 22, 14, 23, 376, DateTimeKind.Local).AddTicks(9177), "admin" });
+                values: new object[] { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ProjectAdmin123@gmail.com", 0, new byte[] { 253, 54, 46, 208, 46, 213, 232, 95, 64, 176, 78, 237, 49, 73, 240, 220, 157, 245, 62, 245, 83, 77, 161, 162, 233, 114, 168, 14, 50, 2, 48, 98, 107, 225, 18, 143, 122, 48, 29, 251, 14, 132, 76, 96, 155, 102, 255, 38, 66, 199, 195, 36, 221, 235, 46, 15, 134, 185, 100, 177, 105, 237, 212, 245 }, new byte[] { 193, 61, 201, 57, 246, 27, 33, 9, 67, 144, 74, 2, 111, 155, 171, 109, 10, 13, 73, 238, 99, 108, 9, 79, 214, 199, 129, 112, 106, 26, 30, 254, 249, 134, 247, 249, 74, 190, 166, 208, 141, 63, 2, 90, 152, 98, 250, 38, 45, 58, 164, 208, 212, 123, 206, 208, 198, 250, 211, 28, 28, 17, 94, 241, 18, 189, 10, 98, 210, 19, 21, 150, 67, 229, 126, 140, 82, 20, 167, 61, 91, 63, 7, 4, 217, 242, 145, 217, 77, 85, 157, 6, 137, 27, 208, 82, 115, 32, 138, 138, 49, 4, 89, 101, 203, 183, 202, 135, 214, 145, 189, 244, 116, 249, 154, 173, 51, 13, 129, 197, 187, 162, 114, 67, 128, 62, 11, 44 }, new DateTime(2022, 5, 9, 12, 10, 6, 481, DateTimeKind.Local).AddTicks(9118), "admin" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",
@@ -179,11 +142,6 @@ namespace InterviewProject.Infrastructure.Migrations
                 name: "IX_ProductImage_ProductId",
                 table: "ProductImage",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RoleUser_UsersId",
-                table: "RoleUser",
-                column: "UsersId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -192,16 +150,10 @@ namespace InterviewProject.Infrastructure.Migrations
                 name: "ProductImage");
 
             migrationBuilder.DropTable(
-                name: "RoleUser");
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Product");
-
-            migrationBuilder.DropTable(
-                name: "Role");
-
-            migrationBuilder.DropTable(
-                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Category");

@@ -21,7 +21,7 @@ namespace InterviewProject.Api.Controllers
         }
 
 
-        [HttpGet("SearchProduct"), Authorize(Policy = "Administrator, User")]
+        [HttpGet("SearchProduct"), Authorize]
         public async Task<ActionResult> SearchProduct([FromQuery] SearchProductQuery request)
         {
             var result = await _mediator.Send(request);
