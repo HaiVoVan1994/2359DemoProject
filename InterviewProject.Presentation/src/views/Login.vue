@@ -64,6 +64,11 @@ export default {
     }),
 
     login(isAdmin) {
+      if (!isAdmin && (!this.user.username || this.user.password)) {
+          alert("User name and password are required")
+          return
+      }
+
       let payload = {
         username: this.user.username,
         password: this.user.password,

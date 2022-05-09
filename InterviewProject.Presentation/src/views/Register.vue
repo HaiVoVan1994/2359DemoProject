@@ -10,6 +10,7 @@
               type="text"
               class="form-control"
               name="username"
+              required
             />
             <div
               class="alert-danger"
@@ -22,6 +23,7 @@
               type="password"
               class="form-control"
               name="password"
+              required
             />
             <div
             ></div>
@@ -33,6 +35,7 @@
               type="email"
               class="form-control"
               name="email"
+              required
             />
             <div>
              </div>
@@ -44,11 +47,12 @@
               type="date"
               class="form-control"
               name="dob"
+              required
             />
           </div>
           <div class="form-group">
             <label for="gender">Gender</label>
-            <select v-model="user.gender" class="form-control">
+            <select v-model="user.gender" class="form-control" required>
               <option disabled value="">Please select one</option>
               <option v-for="gender in genders" :key="gender.id" :value="gender.id">{{gender.description}}</option>
             </select>

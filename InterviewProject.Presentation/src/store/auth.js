@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = 'https://localhost:7083/api/User';
+import { API_URL_USER } from "../Utility/constant";
 
 const state = () => ({
     loginStatus: false,
@@ -32,7 +32,7 @@ const getters = {
 const actions = {
     loginApi({ commit }, payload) {
       return new Promise ((resolve, reject) => {
-        axios.post(API_URL + "/Login", 
+        axios.post(API_URL_USER + "/Login", 
         payload).then(response => {
           if (response && response.data && response.data.isSuccess) {
             commit("setLoginSuccess")
@@ -58,7 +58,7 @@ const actions = {
 
     register({commit}, payload) {
       return new Promise ((resolve, reject) => {
-        axios.post(API_URL + "/Register", 
+        axios.post(API_URL_USER + "/Register", 
         payload).then(response => {
           if (response && response.data && response.data.isSuccess) {
             commit("setLoginSuccess");

@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = 'https://localhost:7083/api/Product';
+import { API_URL_PRODUCT } from "../Utility/constant";
 
 const state = () => ({
     products: [],
@@ -19,7 +19,7 @@ const actions = {
     searchProduct({ commit }, payload) {
         return new Promise ((resolve, reject) => {
             const query = `ProductName=${payload.ProductName}&CategoryId=${payload.CategoryId}&ProductStatus=${payload.ProductStatus}`
-            axios.get(API_URL + `/SearchProduct?${query}`).then(response => {
+            axios.get(API_URL_PRODUCT + `/SearchProduct?${query}`).then(response => {
             if (response && response.data) {
                 commit("setProductData", response.data.payload)
             }
@@ -49,7 +49,7 @@ const actions = {
         }
 
         return new Promise ((resolve, reject) => {
-            axios.post(API_URL + `/CreateProduct`, formData).then(() => {
+            axios.post(API_URL_PRODUCT + `/CreateProduct`, formData).then(() => {
             resolve(true)
             }).catch(e => {
             console.log(e)

@@ -10,6 +10,7 @@
               type="text"
               class="form-control"
               name="productName"
+              required
             />
           </div>
           <div class="form-group">
@@ -19,18 +20,19 @@
               v-model="product.description"
               class="form-control"
               name="description"
+              required
             ></textarea>
           </div>
           <div class="form-group">
             <label for="categoryId">Category</label>
-            <select class="form-control" v-model="product.categoryId">
+            <select class="form-control" v-model="product.categoryId" required>
               <option disabled value="">Please select one</option>
               <option v-for="ctg in this.Categories" :key="ctg.id" :value="ctg.id">{{ctg.CategoryName}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="UnitOfMeasureId">Unit Of Measurement</label>
-            <select  class="form-control" v-model="product.unitOfMeasureId">
+            <select class="form-control" v-model="product.unitOfMeasureId" required>
               <option disabled value="">Please select one</option>
               <option v-for="unit in this.UOM" :key="unit.id" :value="unit.id">{{unit.UnitName}}</option>
             </select>
@@ -43,6 +45,7 @@
               step="any"
               class="form-control"
               name="PricePerUnit"
+              required
             />
             <div>
              </div>
