@@ -11,15 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{522D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8473D3FE-9995-4445-A192-226A0028E6FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewProject.UnitTests", "InterviewProject.UnitTests\InterviewProject.UnitTests.csproj", "{FC6056F4-DE3F-45CE-B1C3-9FEEA6D665F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewProject.UnitTests", "InterviewProject.UnitTests\InterviewProject.UnitTests.csproj", "{FC6056F4-DE3F-45CE-B1C3-9FEEA6D665F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewProject.Domains", "InterviewProject.Domains\InterviewProject.Domains.csproj", "{2769B33E-7A14-4346-BF2B-EDCB1BAFF5D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewProject.Domains", "InterviewProject.Domains\InterviewProject.Domains.csproj", "{2769B33E-7A14-4346-BF2B-EDCB1BAFF5D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewProject.Application", "InterviewProject.Application\InterviewProject.Application.csproj", "{0C6F341E-0E15-4D39-AED6-B5EF7E10FE8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewProject.Application", "InterviewProject.Application\InterviewProject.Application.csproj", "{0C6F341E-0E15-4D39-AED6-B5EF7E10FE8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewProject.Infrastructure", "InterviewProject.Infrastructure\InterviewProject.Infrastructure.csproj", "{C203C344-1091-4318-9BF6-EB84B290412B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewProject.Infrastructure", "InterviewProject.Infrastructure\InterviewProject.Infrastructure.csproj", "{C203C344-1091-4318-9BF6-EB84B290412B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterviewProject.Common", "InterviewProject.Common\InterviewProject.Common.csproj", "{142ADD79-5191-4ABB-8917-E234690A1A70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterviewProject.Common", "InterviewProject.Common\InterviewProject.Common.csproj", "{142ADD79-5191-4ABB-8917-E234690A1A70}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6D7B45B3-E03B-465B-9DEB-5BE00B9D8B21}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "interviewproject.presentation", "InterviewProject.Presentation\interviewproject.presentation.esproj", "{9412591E-BC2D-46E5-8B85-5308153CE8C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,12 @@ Global
 		{142ADD79-5191-4ABB-8917-E234690A1A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{142ADD79-5191-4ABB-8917-E234690A1A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{142ADD79-5191-4ABB-8917-E234690A1A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +72,7 @@ Global
 		{0C6F341E-0E15-4D39-AED6-B5EF7E10FE8C} = {522D84CA-AB2A-43B3-AB6E-70CC5A2DF4E8}
 		{C203C344-1091-4318-9BF6-EB84B290412B} = {522D84CA-AB2A-43B3-AB6E-70CC5A2DF4E8}
 		{142ADD79-5191-4ABB-8917-E234690A1A70} = {522D84CA-AB2A-43B3-AB6E-70CC5A2DF4E8}
+		{9412591E-BC2D-46E5-8B85-5308153CE8C6} = {6D7B45B3-E03B-465B-9DEB-5BE00B9D8B21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A4F83A0-2C01-4E64-9736-3B83B5F52667}

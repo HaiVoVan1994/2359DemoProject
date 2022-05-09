@@ -1,4 +1,4 @@
-# clientapp
+# interviewproject.presentation
 
 ## Project setup
 ```
