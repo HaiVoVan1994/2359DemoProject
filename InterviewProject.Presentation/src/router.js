@@ -29,7 +29,7 @@ export const router = new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('./views/Profile.vue')
+      component: () => import('./components/Profile.vue')
     },
     {
       path: '/productDetail',

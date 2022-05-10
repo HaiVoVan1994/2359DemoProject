@@ -7,12 +7,13 @@
     using InterviewProject.Common;
     using InterviewProject.Common.Services;
     using Microsoft.Extensions.Logging;
+using InterviewProject.Common.Enum;
+    using Microsoft.EntityFrameworkCore;
 
     public class LoginQuery : IRequest<RequestResult<LoginResult>>
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public bool? isAdmin { get; set; }
     }
 
     public class LoginResult
@@ -45,7 +46,7 @@
             var userInfo = new LoginResult();
             try
             {
-                var user = _db.User.Where(x => x.Username.Equals(request.Username)).FirstOrDefault();
+                var user = _db.User.Include(x => x.UserRole).Where(x => x.Username.Equals(request.Username)).FirstOrDefault();
                 if (user == null)
                 {
                     return await Task.FromResult(new FailResult<LoginResult>("User not found"));
@@ -55,8 +56,7 @@
                 {
                     return await Task.FromResult(new FailResult<LoginResult>("Wrong password"));
                 }
-
-                var jwt = _tokenService.CreateToken(user.Username, user.Email, request.isAdmin);
+                var jwt = _tokenService.CreateToken(user.Username, user.Email, (UserRoleEnum)user.RoleId);
                 userInfo = new LoginResult
                 {
                     Id = user.Id,
@@ -65,7 +65,7 @@
                     DOB = user.DOB,
                     Gender = (user.Gender).ToString(),
                     Token = jwt,
-                    Role = (request.isAdmin.HasValue && request.isAdmin == true) ? "Admin" : "User"
+                    Role = user.UserRole.RoleName
                 };
             }
             catch (Exception e)

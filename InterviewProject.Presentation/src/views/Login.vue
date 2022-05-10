@@ -53,18 +53,18 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("authModule", {
+    ...mapGetters("userModule", {
       getLoginStatus: "getLoginStatus",
       token: "getToken"
     }),
   },
   methods: {
-    ...mapActions("authModule", {
+    ...mapActions("userModule", {
       actionLoginApi: "loginApi",
     }),
 
     login(isAdmin) {
-      if (!isAdmin && (!this.user.username || this.user.password)) {
+      if (!isAdmin && (!this.user.username || !this.user.password)) {
           alert("User name and password are required")
           return
       }
@@ -72,7 +72,6 @@ export default {
       let payload = {
         username: this.user.username,
         password: this.user.password,
-        isAdmin: isAdmin
       }
 
       if (isAdmin) {

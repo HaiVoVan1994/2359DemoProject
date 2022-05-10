@@ -23,13 +23,13 @@
            </div>
            <div class="col-sm-3 search-btn-area ms-2">
             <button class="btn btn-primary">Search</button>
-            <button v-if="this.getUserRole === 'Admin'" class="btn btn-success ms-2" @click="showCreateProductPage()">Create</button>
+            <button v-if="this.getUserRole === 'Administrator'" class="btn btn-success ms-2" @click="showCreateProductPage()">Create</button>
            </div>
         </form>
       </div>
     </div>
     <div class="row">
-      <div v-for="product in getProducts.products" :key="product.id" class="col-sm-4 card">
+      <div v-for="product in getProducts.products" :key="product.id" class="col-sm-3 card mx-3">
         <div class="mb-2">
           <img :src="'data:image/png;base64,'+ product.images[0].imageBase64" class="image-container" />
         </div>
@@ -81,7 +81,7 @@ export default {
   computed: {
      ...mapGetters({
         getProducts: 'productModule/getProducts',
-        getUserRole: 'authModule/getUserRole',
+        getUserRole: 'userModule/getUserRole',
      })
   },
   methods: {
@@ -115,7 +115,7 @@ export default {
 
 .image-container {
   width: 100%;
-  height: auto;
+  height: 250px;
 }
 
 .search-btn-area {

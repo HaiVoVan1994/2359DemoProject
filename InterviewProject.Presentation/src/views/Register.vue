@@ -108,11 +108,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      "authModule": {  token: "getToken", getLoginStatus: "getLoginStatus" }
+      "userModule": {  token: "getToken", getLoginStatus: "getLoginStatus" }
     })
   },
   methods: {
-    ...mapActions("authModule", {
+    ...mapActions("userModule", {
       register: "register",
     }),
 

@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InterviewProject.Api\InterviewProject.Api.csproj" />
     <ProjectReference Include="..\InterviewProject.Application\InterviewProject.Application.csproj" />
   </ItemGroup>
 

@@ -38,11 +38,12 @@ namespace InterviewProject.Infrastructure
 
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new UnitOfMeasureConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration(_userService));
         }
 
         public virtual DbSet<User> User { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Category> Category { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
     }
 }

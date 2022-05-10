@@ -19,5 +19,9 @@ namespace InterviewProject.Domains
         public string Email { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
+        [ForeignKey("Role")]
+        public int RoleId { get; set; }
+
+        public virtual Role UserRole { get; set; }
     }
 }

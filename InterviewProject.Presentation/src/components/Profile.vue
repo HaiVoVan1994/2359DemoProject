@@ -31,7 +31,7 @@ export default {
   name: 'Profile',
   computed: {
     ...mapGetters({
-       userInfo: "authModule/getUserInfo"
+       userInfo: "userModule/getUserInfo"
     }),
 
     formatDate() {

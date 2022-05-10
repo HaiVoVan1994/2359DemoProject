@@ -1,18 +1,19 @@
 using InterviewProject.Application.UserFeature;
+using InterviewProject.Common.OptionConfiguration;
 using InterviewProject.Common.Services;
 using InterviewProject.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
-using VueCliMiddleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<JWTOptions>(builder.Configuration.GetSection(JWTOptions.JWTOption));
+
 var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
@@ -55,6 +56,8 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
 {
+    var jwtOption = builder.Configuration.GetSection(JWTOptions.JWTOption)
+                .Get<JWTOptions>();
     option.SaveToken = true;
     option.RequireHttpsMetadata = false;
     option.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -62,9 +65,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateIssuerSigningKey = true,
-        ValidAudience = builder.Configuration["JWT:ValidAudience"],
-        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
+        ValidAudience = jwtOption.ValidAudience,
+        ValidIssuer = jwtOption.ValidIssuer,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOption.Secret))
     };
 });
 
@@ -90,11 +93,6 @@ builder.Services.AddSpaStaticFiles(config =>
 });
 
 var app = builder.Build();
-
-//ILoggerFactory loggerFactory
-//var path = Directory.GetCurrentDirectory();
-//loggerFactory.AddFile($"{path}\\Logs\\Log.txt");
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

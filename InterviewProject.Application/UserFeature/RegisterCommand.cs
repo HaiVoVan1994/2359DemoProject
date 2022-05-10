@@ -68,6 +68,7 @@ using InterviewProject.Application.ProductFeature;
                     DOB = request.DOB,
                     Gender =  (GenderEnum)request.Gender,
                     Email = request.Email,
+                    RoleId = (int)UserRoleEnum.User
                 };
                 _db.User.Add(newUser);
                 _db.SaveChanges();
@@ -79,7 +80,7 @@ using InterviewProject.Application.ProductFeature;
                     Email = newUser.Email,
                     DOB = newUser.DOB,
                     Gender = (newUser.Gender).ToString(),
-                    Token = _tokenService.CreateToken(newUser.Username, newUser.Email, isAdmin: false)
+                    Token = _tokenService.CreateToken(newUser.Username, newUser.Email, (UserRoleEnum)newUser.RoleId)
                 };
 
             }

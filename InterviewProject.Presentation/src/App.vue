@@ -49,12 +49,12 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
     ...mapGetters(
-      "authModule", { loginStatus: "getLoginStatus", userInfo: "getUserInfo", logOutStatus: "getlogOutStatus" }
+      "userModule", { loginStatus: "getLoginStatus", userInfo: "getUserInfo", logOutStatus: "getlogOutStatus" }
     )
   },
   methods: {
     ...mapActions(
-      "authModule", { userLogout : "logOut", setUserInfoAction : "setUserInfoAction", setUserLogout: "setUserLogout"}
+      "userModule", { userLogout : "logOut", setUserInfoAction : "setUserInfoAction", setUserLogout: "setUserLogout"}
     ),
 
     async logOut() {
